@@ -16,7 +16,7 @@ const { Pool } = require('pg');
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'https://expense-tracker-omega-neon-97.vercel.app', // Vercel frontend URL
+    origin: 'https://exp-tracker-postgres.onrender.com', // Vercel frontend URL
     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
 app.use(cookieParser());
@@ -432,19 +432,19 @@ app.get('/check-session', (req, res) => {
 });
 
 // Serve the login page
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/login.html'));
-});
+// app.get('/login', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/login.html'));
+// });
 
 // // Serve the registration page
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/register.html'));
-});
+// app.get('/register', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/register.html'));
+// });
 
 // // Serve the expenses page (protected route)
-app.get('/expenses', authenticateUser, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// app.get('/expenses', authenticateUser, (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 
 // Serve the homepage
 app.get('/', (req, res) => {
